@@ -10,8 +10,8 @@ app.use(cors()); //cross-orgin-request different localhost
 app.use(express.json());
 //MONGO_URI=
 mongoose.connect("mongodb+srv://shanthiarunachalamdev_db_user:ToDoApp@cluster0.1ncbfhu.mongodb.net/ToDoAppDb", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000,
 }).then(() => console.log("MongoDB Connected"))
     .catch(err => console.log("MongoDB Error:", err));
