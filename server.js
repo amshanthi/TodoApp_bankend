@@ -9,7 +9,7 @@ const app = express();
 app.use(cors()); //cross-orgin-request different localhost
 app.use(express.json());
 //MONGO_URI=
-mongoose.connect("MONGO_URI=mongodb+srv://shanthiarunachalamdev_db_user:ToDoApp@cluster0.1ncbfhu.mongodb.net/ToDoAppDb?retryWrites=true&w=majority", {
+mongoose.connect("MONGO_URI=mongodb+srv://shanthiarunachalamdev_db_user:ToDoApp@cluster0.1ncbfhu.mongodb.net/ToDoAppDb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000,
