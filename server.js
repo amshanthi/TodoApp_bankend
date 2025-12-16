@@ -2,14 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 
 const app = express();
 app.use(cors()); //cross-orgin-request different localhost
 app.use(express.json());
 
-mongoose.connect("MONGO_URI=mongodb+srv://shanthiarunachalamdev_db_user:ToDoApp@cluster0.1ncbfhu.mongodb.net/ToDoAppDb").then(() => console.log("MongoDB Connected"))
+mongoose.connect("mongodb+srv://shanthiarunachalamdev_db_user:ToDoApp@cluster0.1ncbfhu.mongodb.net/ToDoAppDb").then(() => console.log("MongoDB Connected"))
     .catch(err => console.log("MongoDB Error:", err));
 
 // const UserSchema = new mongoose.Schema({
