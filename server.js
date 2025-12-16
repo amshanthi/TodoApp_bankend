@@ -12,10 +12,22 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB Connected"))
     .catch(err => console.log("MongoDB Error:", err));
 
+// const UserSchema = new mongoose.Schema({
+//     name: String,
+//     Completed: Boolean,
+//     Id: Date
+// });
+
 const UserSchema = new mongoose.Schema({
-    name: String,
-    Completed: Boolean,
-    Id: Date
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    Completed: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const User = mongoose.model("users", UserSchema);
@@ -30,6 +42,7 @@ app.post("/Add", async (req, res) => {
 
     const user = new User({ name, Completed: false });
     await user.save();
+    console.log(user)
     res.json({ success: true, message: "Added!", data: user });
 });
 
