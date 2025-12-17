@@ -56,6 +56,22 @@ app.get("/Home", async (req, res) => {
     res.json(users);
 });
 
+
+app.delete("/Delete/:id", async (req, res) => {
+    try {
+        const userId = req.params.id;
+
+        const user = await User.findByIdAndDelete({ _id: userId });
+        // OR
+        // const user = await User.findByIdAndDelete(userId);
+
+        res.json({ success: true, user });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+})
+
+
 app.post("/Update/:id", async (req, res) => {
 
     try {
